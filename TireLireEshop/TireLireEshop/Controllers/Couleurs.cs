@@ -12,7 +12,8 @@ namespace TireLireEshop.Controllers
         // GET: Couleurs
         public ActionResult Index()
         {
-            return View();
+            dbtirelireshopContext cxt = new dbtirelireshopContext();
+            return View(cxt.Couleur);
         }
 
         // GET: Couleurs/Details/5
