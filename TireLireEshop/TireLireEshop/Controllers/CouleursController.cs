@@ -4,16 +4,30 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TireLireEshop.Repository;
 
 namespace TireLireEshop.Controllers
 {
-    public class Couleurs : Controller
+    public class CouleursController : Controller
     {
+        //création d'un constructeur
+
+        IRepository<Couleur> repoCouleur;
+        dbtirelireshopContext ctx;
+        // GET: CouleurController
+
+        public CouleursController()
+        {
+            ctx = new dbtirelireshopContext();
+            repoCouleur = new Repository<Couleur>(ctx);
+        }
+
         // GET: Couleurs
         public ActionResult Index()
         {
-            dbtirelireshopContext cxt = new dbtirelireshopContext();
-            return View(cxt.Couleur);
+            
+            return View(repoCouleur.GetAll());
+            
         }
 
         // GET: Couleurs/Details/5
@@ -31,7 +45,7 @@ namespace TireLireEshop.Controllers
         // POST: Couleurs/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Couleur couleur)
         {
             try
             {
