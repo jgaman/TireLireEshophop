@@ -34,12 +34,14 @@ namespace TireLireEshop.Controllers
         // GET: Couleurs/Details/5
         public ActionResult Details(int id)
         {
+             
             return View();
         }
 
         // GET: Couleurs/Create
         public ActionResult Create()
         {
+            
             return View();
         }
 
@@ -50,6 +52,8 @@ namespace TireLireEshop.Controllers
         {
             try
             {
+                repoCouleur.InsertItem(couleur);
+                ctx.
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -61,16 +65,17 @@ namespace TireLireEshop.Controllers
         // GET: Couleurs/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(repoCouleur.GetItem(id));
         }
 
         // POST: Couleurs/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Couleur couleur)
         {
             try
             {
+                repoCouleur.UpdateItem(couleur);
                 return RedirectToAction(nameof(Index));
             }
             catch

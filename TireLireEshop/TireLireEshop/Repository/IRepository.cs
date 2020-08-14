@@ -11,6 +11,7 @@ namespace TireLireEshop.Repository
         T InsertItem(T item);
         T DeleteItem(T item);
         T UpdateItem(T item);
-        T GetItem(T item);
+        T GetItem(int id);
+        object UpdateItem();
     }
 }

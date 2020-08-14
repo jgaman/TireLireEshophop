@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using EntityState = Microsoft.EntityFrameworkCore.EntityState;
 
 namespace TireLireEshop.Repository
 {
@@ -16,6 +19,7 @@ namespace TireLireEshop.Repository
         
         public T DeleteItem(T item)
         {
+
             throw new NotImplementedException();
         }
 
@@ -24,17 +28,29 @@ namespace TireLireEshop.Repository
             return _context.Set<T>().ToList();
         }
 
-        public T GetItem(T item)
+        public T GetItem(int id)
         {
-            throw new NotImplementedException();
+            return _context.Set<T>().Find(id);
         }
 
         public T InsertItem(T item)
         {
-            throw new NotImplementedException();
+            _context.Add(item);
+            _context.SaveChanges();
+            return item;
+            
         }
 
         public T UpdateItem(T item)
+        {
+            _context.Attach(item);
+            _context.Entry(item).State = EntityState.Modified;
+            _context.SaveChanges();
+            return item;
+
+        }
+
+        public object UpdateItem()
         {
             throw new NotImplementedException();
         }
