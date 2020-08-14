@@ -53,7 +53,7 @@ namespace TireLireEshop.Controllers
             try
             {
                 repoCouleur.InsertItem(couleur);
-                ctx.
+                
                 return RedirectToAction(nameof(Index));
             }
             catch

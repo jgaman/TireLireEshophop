@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ViewFeatures.Buffers;
 using Microsoft.EntityFrameworkCore;
 using EntityState = Microsoft.EntityFrameworkCore.EntityState;
 
@@ -17,12 +18,24 @@ namespace TireLireEshop.Repository
             _context = context;
         }
         
-        public T DeleteItem(T item)
+        public T DeleteItem(int id)
         {
+            try
+            {
+                T user = _context.Set<T>().Find(id);
+                _context.Set<T>().Remove(user);
+                _context.SaveChanges();
+                return user;
+            }
+            catch (Exception)
+            {
 
-            throw new NotImplementedException();
+                throw;
+            }
+            
         }
 
+        
         public IEnumerable<T> GetAll()
         {
             return _context.Set<T>().ToList();
@@ -37,8 +50,13 @@ namespace TireLireEshop.Repository
         {
             _context.Add(item);
             _context.SaveChanges();
-            return item;
+            return item;    
             
+        }
+
+        public T Save()
+        {
+            throw new NotImplementedException();
         }
 
         public T UpdateItem(T item)

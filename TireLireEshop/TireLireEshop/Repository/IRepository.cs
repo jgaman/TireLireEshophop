@@ -9,9 +9,10 @@ namespace TireLireEshop.Repository
     {
         IEnumerable<T> GetAll();
         T InsertItem(T item);
-        T DeleteItem(T item);
+        T DeleteItem(int id);
         T UpdateItem(T item);
         T GetItem(int id);
         object UpdateItem();
+        T Save();
     }
 }
