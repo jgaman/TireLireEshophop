@@ -32,7 +32,7 @@ namespace TireLireEshop.Controllers
         // GET: ProduitController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(repoProduit.GetItem(id));
         }
 
         // GET: ProduitController/Create
