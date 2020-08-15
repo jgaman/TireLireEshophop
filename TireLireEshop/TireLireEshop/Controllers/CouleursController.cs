@@ -35,7 +35,7 @@ namespace TireLireEshop.Controllers
         public ActionResult Details(int id)
         {
              
-            return View();
+            return View(repoCouleur.GetItem(id));
         }
 
         // GET: Couleurs/Create
