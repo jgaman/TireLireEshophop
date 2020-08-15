@@ -44,10 +44,11 @@ namespace TireLireEshop.Controllers
         // POST: ProduitController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Produits produit)
         {
             try
             {
+                repoProduit.InsertItem(produit);
                 return RedirectToAction(nameof(Index));
             }
             catch
