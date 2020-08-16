@@ -83,7 +83,7 @@ namespace TireLireEshop.Controllers
         // GET: HomeController1/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(repoClient.GetItem(id));
         }
 
         // POST: HomeController1/Delete/5
@@ -93,6 +93,7 @@ namespace TireLireEshop.Controllers
         {
             try
             {
+                repoClient.DeleteItem(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
