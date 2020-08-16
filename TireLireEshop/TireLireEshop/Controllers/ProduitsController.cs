@@ -60,7 +60,7 @@ namespace TireLireEshop.Controllers
         // GET: ProduitController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(repoProduit.GetItem(id));
         }
 
         // POST: ProduitController/Edit/5
