@@ -67,10 +67,11 @@ namespace TireLireEshop.Controllers
         // POST: HomeController1/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Clients client)
         {
             try
             {
+                repoClient.UpdateItem(client);
                 return RedirectToAction(nameof(Index));
             }
             catch
