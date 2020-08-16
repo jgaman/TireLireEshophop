@@ -27,13 +27,13 @@ namespace TireLireEshop.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return View(repoClient.GetAll());
         }
 
-        // GET: HomeController1/Details/5
+        // GET: ClientController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(repoClient.GetItem(id));
         }
 
         // GET: HomeController1/Create
