@@ -4,12 +4,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TireLireEshop.Repository;
 
 namespace TireLireEshop.Controllers
 {
     public class ClientsController : Controller
     {
-        // GET: HomeController1
+        //création d'un constructeur
+
+        IRepository<Clients> repoClient;
+        dbtirelireshopContext ctx;
+
+        // GET: ClientController
+
+        public ClientsController()
+        {
+            ctx = new dbtirelireshopContext();
+            repoClient = new Repository<Clients>(ctx);
+        }
+
+        // GET: ClientsController
+
         public ActionResult Index()
         {
             return View();
