@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using TireLireEshop.Repository;
 
 namespace TireLireEshop.Controllers
@@ -38,6 +39,8 @@ namespace TireLireEshop.Controllers
         // GET: ProduitController/Create
         public ActionResult Create()
         {
+            ViewBag.couleur = new Repository<Couleur>(ctx).GetAll().Select(c => new SelectListItem { Text = c.Nom, Value = c.PkIdCouleur.ToString()});
+            ViewBag.fabricant = new Repository<Fabricant>(ctx).GetAll().Select(f => new SelectListItem { Text = f.Nom, Value = f.PkIdFabricant.ToString()});
             return View();
         }
 
