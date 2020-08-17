@@ -63,6 +63,8 @@ namespace TireLireEshop.Controllers
         // GET: ProduitController/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewBag.couleur = new Repository<Couleur>(ctx).GetAll().Select(c => new SelectListItem { Text = c.Nom, Value = c.PkIdCouleur.ToString() });
+            ViewBag.fabricant = new Repository<Fabricant>(ctx).GetAll().Select(f => new SelectListItem { Text = f.Nom, Value = f.PkIdFabricant.ToString() });
             return View(repoProduit.GetItem(id));
         }
 
