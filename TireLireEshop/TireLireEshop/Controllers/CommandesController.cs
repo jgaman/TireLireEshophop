@@ -59,16 +59,17 @@ namespace TireLireEshop.Controllers
         // GET: CommandesController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(repoCommande.GetItem(id));
         }
 
         // POST: CommandesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Commandes commande)
         {
             try
             {
+                repoCommande.UpdateItem(commande);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -80,7 +81,7 @@ namespace TireLireEshop.Controllers
         // GET: CommandesController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(repoCommande.GetItem(id));
         }
 
         // POST: CommandesController/Delete/5
@@ -90,6 +91,7 @@ namespace TireLireEshop.Controllers
         {
             try
             {
+                repoCommande.DeleteItem(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
