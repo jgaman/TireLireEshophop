@@ -26,13 +26,13 @@ namespace TireLireEshop.Controllers
         // GET: Images
         public ActionResult Index()
         {
-            return View();
+            return View(repoImage.GetAll());
         }
 
         // GET: Images/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(repoImage.GetItem(id));
         }
 
         // GET: Images/Create
@@ -44,10 +44,11 @@ namespace TireLireEshop.Controllers
         // POST: Images/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Image image)
         {
             try
             {
+                repoImage.InsertItem(image);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -59,16 +60,17 @@ namespace TireLireEshop.Controllers
         // GET: Images/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(repoImage.GetItem(id));
         }
 
         // POST: Images/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Image image)
         {
             try
             {
+                repoImage.UpdateItem(image);
                 return RedirectToAction(nameof(Index));
             }
             catch
