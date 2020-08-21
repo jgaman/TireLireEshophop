@@ -8,39 +8,40 @@ using TireLireEshop.Repository;
 
 namespace TireLireEshop.Controllers
 {
-    public class StatutCommandesController : Controller
+    public class ImagesController : Controller
     {
         //création d'un constructeur
 
-        IRepository<StatutCommande> repoStatutCommande;
+        IRepository<Image> repoImage;
         dbtirelireshopContext ctx;
 
-        // GET: CommandesController
-        public StatutCommandesController()
+        // GET: ProduitController
+
+        public ImagesController()
         {
             ctx = new dbtirelireshopContext();
-            repoStatutCommande = new Repository<StatutCommande>(ctx);
+            repoImage = new Repository<Image>(ctx);
         }
 
-        // GET: StatutCommandesController
+        // GET: Images
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: StatutCommandesController/Details/5
+        // GET: Images/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: StatutCommandesController/Create
+        // GET: Images/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: StatutCommandesController/Create
+        // POST: Images/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -55,13 +56,13 @@ namespace TireLireEshop.Controllers
             }
         }
 
-        // GET: StatutCommandesController/Edit/5
+        // GET: Images/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: StatutCommandesController/Edit/5
+        // POST: Images/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -76,13 +77,13 @@ namespace TireLireEshop.Controllers
             }
         }
 
-        // GET: StatutCommandesController/Delete/5
+        // GET: Images/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: StatutCommandesController/Delete/5
+        // POST: Images/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
