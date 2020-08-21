@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using TireLireEshop.Repository;
 
 namespace TireLireEshop.Controllers
@@ -48,6 +49,7 @@ namespace TireLireEshop.Controllers
         {
             try
             {
+                ViewBag.produit = new Repository<Produits>(ctx).GetAll().Select(p => new SelectListItem { Text = p.Nom, Value = p.PkIdProduit.ToString()});
                 repoImage.InsertItem(image);
                 return RedirectToAction(nameof(Index));
             }
