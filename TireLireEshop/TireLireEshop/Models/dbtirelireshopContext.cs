@@ -30,7 +30,7 @@ namespace TireLireEshop
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=VisualGaman\\SQLEXPRESS;Initial Catalog=dbtirelireshop;Integrated Security=True; Pooling=False");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-MNK0J51\\SQLEXPRESS;Initial Catalog=dbtirelire;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }
         }
 
