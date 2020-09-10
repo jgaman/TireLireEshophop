@@ -80,7 +80,7 @@ namespace TireLireEshop.Controllers
             }
         }
 
-        // GET: HomeController1/Delete/5
+        // GET: HomeController1/Delete/5 
         public ActionResult Delete(int id)
         {
             return View(repoClient.GetItem(id));
