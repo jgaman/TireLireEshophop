@@ -46,7 +46,7 @@ namespace TireLireEshop.Controllers
 
         // POST: ProduitController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken] 
         public ActionResult Create(Produits produit)
         {
             try
