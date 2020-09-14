@@ -27,7 +27,7 @@ namespace TireLireEshop.Controllers
         public ActionResult Index()
         {
             
-            return View(repoCouleur.GetAll());
+            return View(repoCouleur.GetAll());              
             
         }
 
