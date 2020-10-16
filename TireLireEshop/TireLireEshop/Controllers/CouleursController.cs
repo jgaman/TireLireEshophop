@@ -8,7 +8,7 @@ using TireLireEshop.Repository;
 
 namespace TireLireEshop.Controllers
 {
-    public class CouleursController : Controller
+    public class CouleursController : Controller 
     {
         //création d'un constructeur
 
